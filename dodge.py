@@ -45,20 +45,17 @@ background = canvas.create_image(w//2, h//2, image=background_image)
 gameobjects={"border1":canvas.create_image(250, 135, image=borderimg), "border2":canvas.create_image(250, 370, image=borderimg), "border3":canvas.create_image(250, 600, image=borderimg), "leftborder1":canvas.create_image(1030, 135, image=borderimg), "leftborder2":canvas.create_image(1030, 370, image=borderimg), "leftborder3":canvas.create_image(1030, 600, image=borderimg), "maincar":canvas.create_image(640, 600, image=maincar_image)}
 
 def progstart():
-    #starts program
     window.update_idletasks()
     window.bind("<space>", lambda event: event.widget.quit())
     score_label()
     entername()
 
 def score_label():
-    #initialises score
     global score
     score=Label(canvas, font="Helvetica 16", width=20, background="blue", text="100")
     score.pack(anchor="n")
 
 def entername():
-    #prompts user to enter name
     usrname_frame= LabelFrame(window, fg="white", bg="orange", text="Username")
     usrname_frame.place(x=0, y=0, width=w, height=h)
 
@@ -80,7 +77,6 @@ def getusr(usr):
 
 
 def gamestartmenu():
-    #start menu for game
     gamestartbuttons={"Start":gamestart, "Exit":quit, "Check Leaderboard":leaderboard, "Customize controls":choosekeys, "Load game":showgames}
     createmenu(gamestartbuttons, "Welcome", "Blue")
 
@@ -116,7 +112,6 @@ def leaderboard():
     Button(lbframe, fg="black", bg="red", text="Back to Start", command=gamestartmenu).pack()
 
 def updateldrdata():
-    #updates the leaderboard when user dies
     cur_score=int(score.cget("text"))
     f=open('leaderboard.txt', 'a')
     f.write(usrname+'='+str(cur_score)+'\n')
