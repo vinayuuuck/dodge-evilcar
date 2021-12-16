@@ -13,3 +13,5 @@ Pause: Ctrl-p
 Cheat: semicolon(;) for +100 points
 
 Quit: space
+
+![example.gif](example.gif)
