@@ -159,10 +159,9 @@ def showgames():
     gamelist=[]
 
     for i, file in enumerate(os.listdir(path=saved_path)):
-        print(file)
         game_id=int(float(file[:-4]))
         game_id=datetime.datetime.fromtimestamp(game_id)
-        gamelist.append(Button(saved, background="black", fg="white", text=game_id, width=25, height=5, command=lambda: [loadgame(file), unpause()]))
+        gamelist.append(Button(saved, background="black", fg="white", text=game_id, width=25, height=5, command=lambda: [loadgame(file)]))
         gamelist[i].pack()
 
         Button(saved, background="red", fg="white", text="Go to Start Menu", width=25, height=5, command=gamestartmenu).pack()
@@ -175,6 +174,9 @@ def loadgame(file):
         usrname=f_data.split("=")[0]
         score=f_data.split("=")[1]
     update_score(None, score)
+    Misc.lift(canvas)
+    posreset()
+    startani()
 
 def endgame():
     unbindkeys()
