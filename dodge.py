@@ -498,10 +498,6 @@ def bossback(event=None):
 def cheat(event=None):
     update_score(100)
 
-
-ctrlkeys={left:"<Left>", right:"<Right>", bosskey: "<Control-b>", pausemenu:"<Control-p>", cheat:"<semicolon>"}
-
-
 def bordercol():
     if collisions(gameobjects["maincar"], gameobjects["border1"]):
         endgame()
@@ -552,6 +548,8 @@ if __name__=="__main__":
     wrench_img=PhotoImage(file="./images/wrench.png")
 
     background = canvas.create_image(w//2, h//2, image=background_image)
+
+    ctrlkeys={left:"<Left>", right:"<Right>", bosskey: "<Control-b>", pausemenu:"<Control-p>", cheat:"<semicolon>"}
 
     gameobjects = {
         "border1":canvas.create_image(250, 135, image=borderimg),
