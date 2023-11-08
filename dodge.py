@@ -12,38 +12,6 @@ from random import randint
 import datetime
 import os
 
-w=1280
-h=720
-
-speed=20
-pause=True
-ghostmode=False
-usrname=""
-score=None
-
-window=Tk()
-window.geometry("1280x720")
-window.option_add('*Font', 'Helvetica 16')
-
-canvas=Canvas(window)
-canvas.place(x=0, h=0, width=w, height=h)
-
-
-
-darktree_img=PhotoImage(file="./images/rsztree.png")
-longtree_img=PhotoImage(file="./images/longtree.png")
-background_image=PhotoImage(file="./images/bgnew.png")
-maincar_image=PhotoImage(file="./images/car1.png")
-borderimg=PhotoImage(file="./images/trackbord2rot.png")
-ghost_img=PhotoImage(file="./images/ghostmode.png")
-evilcar_img=PhotoImage(file="./images/evilcar.png")
-ghost_img=PhotoImage(file="./images/ghostmode.png")
-wrench_img=PhotoImage(file="./images/wrench.png")
-
-background = canvas.create_image(w//2, h//2, image=background_image)
-
-gameobjects={"border1":canvas.create_image(250, 135, image=borderimg), "border2":canvas.create_image(250, 370, image=borderimg), "border3":canvas.create_image(250, 600, image=borderimg), "leftborder1":canvas.create_image(1030, 135, image=borderimg), "leftborder2":canvas.create_image(1030, 370, image=borderimg), "leftborder3":canvas.create_image(1030, 600, image=borderimg), "maincar":canvas.create_image(640, 600, image=maincar_image)}
-
 def progstart():
     window.update_idletasks()
     window.bind("<space>", lambda event: event.widget.quit())
@@ -554,5 +522,46 @@ def ghost_off():
     global ghostmode
     ghostmode=False
 
-progstart()
-window.mainloop()
+if __name__=="__main__":
+    # Resolution
+    w=1280
+    h=720
+
+    # Global variables specifying the speed of the game
+    speed=20
+    pause=True
+    ghostmode=False
+    usrname=""
+    score=None
+
+    window=Tk()
+    window.geometry("1280x720")
+    window.option_add('*Font', 'Helvetica 16')
+
+    canvas=Canvas(window)
+    canvas.place(x=0, h=0, width=w, height=h)
+
+    darktree_img=PhotoImage(file="./images/rsztree.png")
+    longtree_img=PhotoImage(file="./images/longtree.png")
+    background_image=PhotoImage(file="./images/bgnew.png")
+    maincar_image=PhotoImage(file="./images/car1.png")
+    borderimg=PhotoImage(file="./images/trackbord2rot.png")
+    ghost_img=PhotoImage(file="./images/ghostmode.png")
+    evilcar_img=PhotoImage(file="./images/evilcar.png")
+    ghost_img=PhotoImage(file="./images/ghostmode.png")
+    wrench_img=PhotoImage(file="./images/wrench.png")
+
+    background = canvas.create_image(w//2, h//2, image=background_image)
+
+    gameobjects = {
+        "border1":canvas.create_image(250, 135, image=borderimg),
+        "border2":canvas.create_image(250, 370, image=borderimg),
+        "border3":canvas.create_image(250, 600, image=borderimg),
+        "leftborder1":canvas.create_image(1030, 135, image=borderimg),
+        "leftborder2":canvas.create_image(1030, 370, image=borderimg),
+        "leftborder3":canvas.create_image(1030, 600, image=borderimg),
+        "maincar":canvas.create_image(640, 600, image=maincar_image)
+    }
+
+    progstart()
+    window.mainloop()
